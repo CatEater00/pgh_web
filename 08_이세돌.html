@@ -44,6 +44,13 @@
       animation: gradientBG 10s ease infinite;
     }
 
+  @media (max-width: 1024px) {
+      body {
+        width: 1024px; /* 고정 너비 유지 */
+        overflow-x: scroll; /* 수평 스크롤 허용 */
+      }
+    }
+  
     .highlight {
       color: #ff007f; /* 강조 색상 */
       font-weight: bold; /* 굵은 글씨 */
