@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>니지산지 소개</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- 파비콘 -->
+  <link rel="icon" href="./fav/favicon-16x16.png">
+
+  <script>
+    function onScroll() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      const windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+          const position = el.getBoundingClientRect().top;
+          const delay = el.getAttribute('data-delay') || 0;
+          if (position < windowHeight - 100) {
+              setTimeout(() => {
+                  el.classList.add('visible');
+              }, delay);
+          }
+      });
+  }
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('load', onScroll);
+  </script>
+
+</head>
+<style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+  @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap');
+  * {
+    font-family: 'Do Hyeon', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, white, #f8c4dd, rgb(178, 243, 229));
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    .highlight {
+      color: #ff007f; /* 강조 색상 */
+      font-weight: bold; /* 굵은 글씨 */
+      background-color: #ffdab9; /* 배경 색상 */
+      padding: 6px 8px; /* 여백 추가 */
+      border-radius: 10px; /* 둥근 모서리 */
+      font-size: 36px;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 */
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-out;
+    }
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+          transform: translateY(20px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+    }
+
+    .animated {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    hr {
+      border: none;
+      height: 5px;
+      background: linear-gradient(to right, #ff5722, #fce4ec, #ff5722);
+      margin: 40px 0;
+      position: relative;
+    }
+
+    hr:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        background: #ff5722;
+        border-radius: 50%;
+        animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes gradientBG {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+  div input[type='checkbox']:checked {
+    background-color: #FFBAB9;
+    border-color: #FFBAB9;
+  }
+  .box {
+    background-color:#FFBAB9;
+    min-width: 20px;
+    height: 20px;
+    content: ' ';
+    margin-right: 1rem;
+  }
+
+  .img-fluid_rounded {
+    width: 100%;
+    height: auto;
+    border: 10px solid rgb(111, 72, 72); /* 액자 색상과 두께 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px; /* 액자의 둥근 모서리 */
+  }
+  
+
+  .img-fluid_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .img-fluid_mx-2_my-2_rounded {
+    border: 4px solid #63605d; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 10px;
+    float: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .img-fluid_mx-2_my-2_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .member_introduce {
+    font-size: 25px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+
+  .video-container {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #75afe2; /* 테두리 색상과 두께 */
+    border-radius: 20px; /* 테두리의 둥근 모서리 */
+    overflow: hidden; /* 내용이 넘치는 경우를 대비하여 가리기 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+  }
+  
+  .video-container iframe {
+    border-radius: 20px; /* 비디오 프레임의 둥근 모서리 */
+  }
+
+</style>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark opacity-75 sticky-top" style="background-color: #FFBAB9;">
+    <div class="container-fluid">
+      <!-- 로고 -->
+      <a class="navbar-brand" href="./index.html"><img class='logo' src="./images/logo.png" width="50s"></a>
+      <!-- 토글 버튼 -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" aria-current="page" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="./03_community.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <!-- 로그인 -->
+          <a class="nav-link fw-bold" href="#exampleModal" data-bs-toggle="modal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- 로그인 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: gray;"><i class="bi bi-lock-fill" style="color: #ffbab9;"></i> Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" style="color: gray;"><i class="bi bi-envelope" style="color: #ffbab9;"></i> Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">우리는 귀하의 이메일을 다른 누구와도 공유하지 않습니다.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: gray;"><i class="bi bi-key" style="color: #ffbab9;"></i> Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #ffdd7c; border-style: none;">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #ffbab9; border-style: none;">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container mt-5 fade-in-up animation-delay: 0.1s;">
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex mb-4">
+      <div class="col text-center" style="width: 30%;">
+        <img class="img-fluid_rounded" src="./images/니지산지_사진/니지산지_04.png" alt="니지산지"></a>
+      </div>
+      <div class="col" style="width: 70%;">
+        <div class="text-center my-4" style="background-color: #faecec; border-style: none; border-radius: 1rem;">
+          <div style="color: #63605d;">
+            <h4 class="pt-4" style="font-weight: 600;">니지산지</h4>
+            <p style="font-size: large;">니지산지(にじさんじ)란 일본의 애니컬러 주식회사가 개발하는 iPhone X 전용 애플리케이션,<br>
+              혹은 니지산지 앱을 사용하여 활동하는 애니컬러 주식회사 소속의 버츄얼 라이버 그룹 및 프로젝트<br>
+              기업계 버츄얼 유튜버의 형태를 만든 트렌드 메이커. <br>
+              니지산지의 대성공 이후로 .LIVE, 홀로라이브 프로덕션, 나나시잉크 등,<br>
+              현재에도 활발히 활동 중인 버츄얼 유튜버 전문 회사들이 니지산지를 벤치마킹하였고,<br> 
+              결과 현재 실황계 버츄얼 유튜버 회사들의 운영 방침은 니지산지를 따르고 있다.<hr></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <hr>
+
+    <section class="my-4">
+      <!-- 멤버들 -->
+      <div class="d-flex mt-5">
+        <div class="box"></div>
+        <h5 style="font-size: 2rem;"><em>대표 멤버 소개</em></h5>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.2s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/니지산지_사진/살로메.png" alt="이미지1" style="width : 330px;" height="auto;">
+        <span class="highlight">햐쿠만텐바라 살로메</span><p class = "member_introduce"><br>진짜 아가씨를 동경하는 일반 여성. 머리와 어조는 타고났다.<br>
+          롤빵 머리에 아가씨 말투라는 전형적인 고위층 아가씨 캐릭터의 요소를 지니고 있다.<br> 
+          하지만 아가씨가 아니라 어디까지나 일반 여성으로, 이 점을 잊지 않게 늘 강조하고 있다.<br> 
+          아가씨를 동경하여 언젠가 백만점짜리 아가씨가 되고 싶어한다는 설정.<br> 
+          머리카락과 말투는 철들었을 무렵에는 이미 이랬다고 하며, <br>
+          이 때문에 살면서 굉장히 고생을 많이 했다는 듯.<br>
+          이 때문인지 묘하게 남의 시선을 신경쓰는 듯 자존감이 떨어지는 모습이 하나의 매력포인트가 되었다.<hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.3s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/니지산지_사진/쿠즈하.png" alt="이미지2" style="width : 330px"; height="auto";>
+        <span class="highlight">쿠즈하</span><p class = "member_introduce"><br>부모의 달콤한 꿀을 계속 빨아먹는 니트인 게이머 흡혈귀, <br>
+          현재는 신변을 돌봐주는 애완 돼지와 생활하고 있다.<br>
+          겉보기와는 달리 제멋대로이고 변덕스러운 어린애 같은 성격으로, 쉽게 우쭐해지는 나쁜 버릇이 있다.<br>
+          게다가 돈에는 사족을 못 쓰는 구제불능 뱀파이어.<br>
+          부자와 결혼하기 위해 시작한 방송일도 바빠져, 본의 아니게 백수라고는 부를 수 없는 생활을 하고 있다.<br><br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.4s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/니지산지_사진/복스아쿠마.png" alt="이미지3" style="width : 330px"; height="auto";>
+        <span class="highlight">복스 아쿠마</span><p class = "member_introduce"><br>과거에서 온 위대한 힘을 가진 악마.<br>
+          초인적인 신체 능력에 절대적인 확신을 지니고 그는 저에게 충성하는 이들을 돌본다.<br>
+          니지산지 EN 소속 버츄얼 라이버이다.<br> 
+          2021년 12월 20일 아이크 이브랜드, 미스타 리아스, 루카 카네시로, 슈 야미노 와 함께 4기생으로 데뷔하였다.<br>
+          이들 5명은 Luxiem럭시엠라는 유닛명으로 불리기도 한다.<br><br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.5s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/니지산지_사진/카나에.png" alt="이미지4" style="width : 330px"; height="auto";>
+        <span class="highlight">카나에</span><p class = "member_introduce">
+          <br>니지산지 게이머즈 일번창, 라이트닝 게이볼그 카나에입니다.<br>
+          돌연 천사처럼 강림한 초(超) 치유계 남자.<br>
+          고양이 모양 쿠션을 양팔로 꼭 안고 있다. 말씨도 조곤조곤하다. <br>
+          외견은 학생처럼 보이지만 평소 뭘 하고 지내는지는 알 수 없다. <br>
+          듣는 사람의 마음을 씻어 주는 듯한 달콤한 목소리로 토크를 풀어나간다.<br><br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.6s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/니지산지_사진/츠키노미토.png" alt="이미지5" style="width : 330px"; height="auto";>
+        <span class="highlight">츠키노 미토</span><p class = "member_introduce">
+          <br>기립, 차렷! 안녕하세요. 츠키노 미토입니다.<br>
+          고등학교 2학년. 츤데레이지만 바탕은 성실한 학급 위원.<br>
+          매사에 열심이나 조금 겉도는 성격이라, 곧잘 말을 뱉은 뒤 너무 심했나 하고 침울해 한다.<br>
+          공식적으로 니지산지 멤버들의 얼굴 마담 취급을 받고 있다.<br>
+          3D 영상계 버튜버 트렌드를 라이브2D 실황계로 바꾼 장본인이다.<br> 
+          이때문에 츠키노 미토는 팬덤에게 천황이라고 불린다.<br>
+          <hr></p>
+      </div>
+      </div>
+    </section>
+    
+    
+    <section class="my-4 fade-in-up animation-delay: 0.7s;">  
+      <div class="d-flex mt-5 mb-4">
+        <div class="box"></div>
+        <h5><em style="font-size: 2rem;">INFO</em></h5>
+      </div>
+      <div class = "container">
+        <p class="mb-2" style="font-size: 2rem;">관련 영상</p>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/W7SKtUCGYQk" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PIwBSi8o6Uw" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- 푸터 -->
+  <footer class="text-white text-center sticky-bottom fw-light opacity-75" style="background-color: #FFBAB9;">
+    Confernece of Korea Artificial-Intelligence Convergence Technology Society, by 박관호, 김용빈
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

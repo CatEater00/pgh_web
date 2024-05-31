@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홀로라이브 소개</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- 파비콘 -->
+  <link rel="icon" href="./fav/favicon-16x16.png">
+
+  <script>
+    function onScroll() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      const windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+          const position = el.getBoundingClientRect().top;
+          const delay = el.getAttribute('data-delay') || 0;
+          if (position < windowHeight - 100) {
+              setTimeout(() => {
+                  el.classList.add('visible');
+              }, delay);
+          }
+      });
+  }
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('load', onScroll);
+  </script>
+
+</head>
+<style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+  @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap');
+  * {
+    font-family: 'Do Hyeon', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, white, #f8c4dd, rgb(178, 243, 229));
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    .highlight {
+      color: #ff007f; /* 강조 색상 */
+      font-weight: bold; /* 굵은 글씨 */
+      background-color: #ffdab9; /* 배경 색상 */
+      padding: 6px 8px; /* 여백 추가 */
+      border-radius: 10px; /* 둥근 모서리 */
+      font-size: 36px;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 */
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-out;
+    }
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+          transform: translateY(20px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+    }
+
+    .animated {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    hr {
+      border: none;
+      height: 5px;
+      background: linear-gradient(to right, #ff5722, #fce4ec, #ff5722);
+      margin: 40px 0;
+      position: relative;
+    }
+
+    hr:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        background: #ff5722;
+        border-radius: 50%;
+        animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes gradientBG {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+  div input[type='checkbox']:checked {
+    background-color: #FFBAB9;
+    border-color: #FFBAB9;
+  }
+  .box {
+    background-color:#FFBAB9;
+    min-width: 20px;
+    height: 20px;
+    content: ' ';
+    margin-right: 1rem;
+  }
+
+  .img-fluid_rounded {
+    width: 100%;
+    height: auto;
+    border: 10px solid rgb(111, 72, 72); /* 액자 색상과 두께 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px; /* 액자의 둥근 모서리 */
+  }
+  
+
+  .img-fluid_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .img-fluid_mx-2_my-2_rounded {
+    border: 4px solid #63605d; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 10px;
+    float: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .img-fluid_mx-2_my-2_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .member_introduce {
+    font-size: 25px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+
+  .video-container {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #75afe2; /* 테두리 색상과 두께 */
+    border-radius: 20px; /* 테두리의 둥근 모서리 */
+    overflow: hidden; /* 내용이 넘치는 경우를 대비하여 가리기 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+  }
+  
+  .video-container iframe {
+    border-radius: 20px; /* 비디오 프레임의 둥근 모서리 */
+  }
+  
+
+</style>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark opacity-75 sticky-top" style="background-color: #FFBAB9;">
+    <div class="container-fluid">
+      <!-- 로고 -->
+      <a class="navbar-brand" href="./index.html"><img class='logo' src="./images/logo.png" width="50s"></a>
+      <!-- 토글 버튼 -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" aria-current="page" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="./03_community.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <!-- 로그인 -->
+          <a class="nav-link fw-bold" href="#exampleModal" data-bs-toggle="modal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- 로그인 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: gray;"><i class="bi bi-lock-fill" style="color: #ffbab9;"></i> Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" style="color: gray;"><i class="bi bi-envelope" style="color: #ffbab9;"></i> Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">우리는 귀하의 이메일을 다른 누구와도 공유하지 않습니다.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: gray;"><i class="bi bi-key" style="color: #ffbab9;"></i> Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #ffdd7c; border-style: none;">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #ffbab9; border-style: none;">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container mt-5 fade-in-up animation-delay: 0.1s;">
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex mb-4">
+      <div class="col text-center" style="width: 30%;">
+        <img class="img-fluid_rounded" src="./images/홀로라이브_사진/홀로라이브_02.png" alt="홀로라이브"></a>
+      </div>
+      <div class="col" style="width: 70%;">
+        <div class="text-center my-4" style="background-color: #faecec; border-style: none; border-radius: 1rem;">
+          <div style="color: #63605d;">
+            <h4 class="pt-4" style="font-weight: 600;">홀로라이브 EN</h4>
+            <p style="font-size: large;">커버 주식회사의 버츄얼 유튜버 프로젝트 hololive 프로덕션의 영미권 진출 사업.<br>
+              길게 홀로라이브 잉글리시라고 읽기도 하고 짧게는 홀로이엔(또는 홀로엔)이라고 읽는다.<br>
+              영어가 '세계에서 가장 널리 쓰이는 언어'인 것 답게 JP, ID와는 다르게 국적이 통일되어 있지 않다.<br> 
+              영어권인 미국, 캐나다, 호주는 물론이고 영어권이 아닌 오스트리아까지 있는 등, 다양한 국적으로 구성되어 있는 게 특징.<br><br><br><br>
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <hr>
+
+    <section class="my-4">
+      <!-- 멤버들 -->
+      <div class="d-flex mt-5">
+        <div class="box"></div>
+        <h5 style="font-size: 2rem;"><em>Members</em></h5>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.2s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/홀로라이브_사진/mori_calriope.png" alt="이미지1" style="width : 220px;" height="auto;">
+        <span class="highlight">모리 칼리오페</span><p class = "member_introduce"><br>그림 리퍼(Grim reaper)의 제1제자.<br>
+            의료가 발달해 있는 현대에는, 사신으로서 활약하는 경우가 없고, 그 대신에 VTuber 활동으로 타인의 영혼을 수확할 예정이라는 듯 하다.<br>
+            심쿵사하는 사람의 영혼도 그녀의 곁에 가는 모양.<br>
+            결국, 발언내용이나 목소리의 이미지와는 다르게, 그녀는 사실 남을 잘 돌봐주고, 상냥한 마음의 소유자이다.<hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.3s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/홀로라이브_사진/Takanashi Kiara.png" alt="이미지2" style="width : 220px"; height="auto";>
+        <span class="highlight">타카나시 키아라</span><p class = "member_introduce"><br>패스트푸드 체인점의 점주가 되고 싶은 아이돌.<br>
+          불사조이고, 닭이나 칠면조는 아니다(중요).<br>
+          그녀는 수명을 깎아내며 굉장히 노력하며 일하고 있는데, 어차피 죽어도 재로부터 되살아날 수 있기 때문.<br><br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.4s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/홀로라이브_사진/Ninomae Ina'nis.png" alt="이미지3" style="width : 220px"; height="auto";>
+        <span class="highlight">니노마에 이나니스</span><p class = "member_introduce"><br>이래 보여도 고대 신의 사제이다.
+          어느 날 '이상한 책'을 줍고 나서 촉수를 다룰 수 있게 되었다.<br>
+          그녀에 있어서 촉수는 일상생활의 일부이고, 딱히 뭐라고 생각하지 않는다.<br>
+          힘을 얻은 이래로, 그녀는 고대의 목소리로부터 속삭임이나 신의 계시를 받고 있다.<br>
+          그녀는 인류의 정신력을 깎아내리기 위해 평범한 소녀로서 VTuber 활동을 개시했다.<br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.5s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/홀로라이브_사진/Gawr Gura.png" alt="이미지4" style="width : 220px"; height="auto";>
+        <span class="highlight">가우르 구라</span><p class = "member_introduce">
+          <br>"아 해저 개노잼 ㅋㅋ" 이라며 지상으로 올라온 잃어버린 도시 아틀란티스의 후예다.
+          <br>입고 있는 상어 옷은 (상어 모자까지 포함해서) 구라가 인간 세상에서 산 것으로,<br>
+          굉장히 마음에 들어 한다. 남는 시간에는 바다 생물과 대화하는 걸 좋아한다.<br><br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.6s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/홀로라이브_사진/Watson Amelia.png" alt="이미지5" style="width : 220px"; height="auto";>
+        <span class="highlight">왓슨 아멜리아</span><p class = "member_introduce">
+          <br>인터넷에서 말하는 여우라든가 마법 다람쥐라든가 초인 멍멍이라든가, 
+          <br>다양한 홀로라이브에 관련된 이상한 소문을 듣고, <br>
+          궁금해져서 조사에 나선 때, 그녀 자신도 아이돌이 되고 싶어졌다.<br>
+          시간 죽이기로 반사 신경을 단련시킬 수 있는 FPS나 퍼즐 게임 등을 종종 하고 있다.<br>
+          </p>
+      </div>
+      </div>
+    </section>
+    <hr>
+    
+    
+    <section class="my-4 fade-in-up animation-delay: 0.7s;">  
+      <div class="d-flex mt-5 mb-4">
+        <div class="box"></div>
+        <h5><em style="font-size: 2rem;">INFO</em></h5>
+      </div>
+      <div class = "container">
+        <p class="mb-2" style="font-size: 2rem;">관련 영상</p>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/uZVGozQX7AM" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/BcO9bZavHRg" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- 푸터 -->
+  <footer class="text-white text-center sticky-bottom fw-light opacity-75" style="background-color: #FFBAB9;">
+    Confernece of Korea Artificial-Intelligence Convergence Technology Society, by 박관호, 김용빈
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

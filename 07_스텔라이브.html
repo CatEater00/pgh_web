@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스텔라이브 소개</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- 파비콘 -->
+  <link rel="icon" href="./fav/favicon-16x16.png">
+
+  <script>
+    function onScroll() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      const windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+          const position = el.getBoundingClientRect().top;
+          const delay = el.getAttribute('data-delay') || 0;
+          if (position < windowHeight - 100) {
+              setTimeout(() => {
+                  el.classList.add('visible');
+              }, delay);
+          }
+      });
+  }
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('load', onScroll);
+  </script>
+
+</head>
+<style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+  @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap');
+  * {
+    font-family: 'Do Hyeon', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, white, #f8c4dd, rgb(178, 243, 229));
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    .highlight {
+      color: #ff007f; /* 강조 색상 */
+      font-weight: bold; /* 굵은 글씨 */
+      background-color: #ffdab9; /* 배경 색상 */
+      padding: 6px 8px; /* 여백 추가 */
+      border-radius: 10px; /* 둥근 모서리 */
+      font-size: 36px;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 */
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-out;
+    }
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+          transform: translateY(20px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+    }
+
+    .animated {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    hr {
+      border: none;
+      height: 5px;
+      background: linear-gradient(to right, #ff5722, #fce4ec, #ff5722);
+      margin: 40px 0;
+      position: relative;
+    }
+
+    hr:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        background: #ff5722;
+        border-radius: 50%;
+        animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes gradientBG {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+  div input[type='checkbox']:checked {
+    background-color: #FFBAB9;
+    border-color: #FFBAB9;
+  }
+  .box {
+    background-color:#FFBAB9;
+    min-width: 20px;
+    height: 20px;
+    content: ' ';
+    margin-right: 1rem;
+  }
+
+  .img-fluid_rounded {
+    width: 80%;
+    height: auto;
+    border: 10px solid rgb(111, 72, 72); /* 액자 색상과 두께 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px; /* 액자의 둥근 모서리 */
+  }
+  
+
+  .img-fluid_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .img-fluid_mx-2_my-2_rounded {
+    border: 4px solid #63605d; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 10px;
+    float: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .img-fluid_mx-2_my-2_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .member_introduce {
+    font-size: 25px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+
+  .video-container {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #75afe2; /* 테두리 색상과 두께 */
+    border-radius: 20px; /* 테두리의 둥근 모서리 */
+    overflow: hidden; /* 내용이 넘치는 경우를 대비하여 가리기 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+  }
+  
+  .video-container iframe {
+    border-radius: 20px; /* 비디오 프레임의 둥근 모서리 */
+  }
+
+</style>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark opacity-75 sticky-top" style="background-color: #FFBAB9;">
+    <div class="container-fluid">
+      <!-- 로고 -->
+      <a class="navbar-brand" href="./index.html"><img class='logo' src="./images/logo.png" width="50s"></a>
+      <!-- 토글 버튼 -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" aria-current="page" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="./03_community.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <!-- 로그인 -->
+          <a class="nav-link fw-bold" href="#exampleModal" data-bs-toggle="modal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- 로그인 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: gray;"><i class="bi bi-lock-fill" style="color: #ffbab9;"></i> Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" style="color: gray;"><i class="bi bi-envelope" style="color: #ffbab9;"></i> Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">우리는 귀하의 이메일을 다른 누구와도 공유하지 않습니다.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: gray;"><i class="bi bi-key" style="color: #ffbab9;"></i> Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #ffdd7c; border-style: none;">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #ffbab9; border-style: none;">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container mt-5 fade-in-up animation-delay: 0.1s;">
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex mb-4">
+      <div class="col text-center" style="width: 30%;">
+        <img class="img-fluid_rounded" src="./images/스텔라이브_사진/스텔라이브_02.png" alt="스텔라이브"></a>
+      </div>
+      <div class="col" style="width: 70%;">
+        <div class="text-center my-4" style="background-color: #faecec; border-style: none; border-radius: 1rem;">
+          <div style="color: #63605d;">
+            <h4 class="pt-4" style="font-weight: 600;">스텔라이브</h4>
+            <p style="font-size: large;">대한민국의 기업형 버츄얼 유튜버 그룹.<br>
+            명칭인 스텔라이브는 별을 의미하는 라틴어인 스텔라와 공연이라는 의미의 영단어 라이브를 합친 것(Stella+live)으로,<br>
+            각자의 개성을 지닌 별들이 모여 우주를 멋지게 꾸미듯이 여러 개성을 지닌 사람들을 모아<br>
+            서로를 더욱 빛나게 하고 싶다는 꿈을 품고 지은 이름이라고 한다.<br>
+            대표 정도현은 강지라는 예명으로 활동하고 있는 인터넷 방송인으로, <br>
+            그녀는 직접 버튜버 활동을 하는 등 전부터 버츄얼 유튜버에 관심을 보여 왔다.<br> 
+            이런 관심 끝에 강지는 2021년 11월 해외 시장을 겨냥한 버츄얼 유튜버 스텔라이브를 설립했다.<br>
+            <hr></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <hr>
+
+    <section class="my-4">
+      <!-- 멤버들 -->
+      <div class="d-flex mt-5">
+        <div class="box"></div>
+        <h5 style="font-size: 2rem;"><em>대표 멤버 소개</em></h5>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.2s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/스텔라이브_사진/아이리칸나.png" alt="이미지1" style="width : 330px;" height="auto;">
+        <span class="highlight">아이리 칸나</span><p class = "member_introduce">
+            <br>하늘에 고립된 용궁의 부흥을 위해 지구를 찾아왔다.<br>
+            용궁의 황녀로서 지식과 시야를 넓히기 위해 용궁 생활을 뒤로하고 지구에 오게되었다.<br>
+            그녀는 스텔라이브에 합류하여 인간을 배우며 그녀의 꿈에 한 발짝 다가가려고 한다.<br>
+            시청자들의 앞에 선 그녀에게선 지도자로서의 카리스마를 볼 수 있을 것이다.<br>
+            밝고 활기찬 성격으로, 애교가 많으며 의외로 털털한 면모 등 다양한 매력을 가지고 있다. <br>
+            상황에 따라 차분하게 가라앉은 모습도 볼 수 있지만 기본적으로는 굉장히 텐션이 높은 편. <br>  <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.3s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/스텔라이브_사진/아야츠노유니.png" alt="이미지2" style="width : 330px"; height="auto";>
+        <span class="highlight">아야츠노 유니</span><p class = "member_introduce">
+            <br>다른 유니콘들이 멸망을 향해갈 때, 홀로 봉인되어 있었던 유니.<br>
+            시간이 지나 그녀는 어느 날 지구에서 눈을 뜨게 된다.<br>
+            이후 보호를 위해 스텔라이브에 합류하여 인간 문화에 녹아든다.<br>
+            타락할지, 순수함을 전해갈지는 유니의 선택에 맡겨졌다.<br>
+            2022년 8월 20일 유메퍼센트 소속으로 데뷔, 2023년 1월 8일 스텔라이브 소속으로 재데뷔한 버츄얼 유튜버.<br><br>
+
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.4s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/스텔라이브_사진/시라유키히나.png" alt="이미지3" style="width : 330px"; height="auto";>
+        <span class="highlight">시라유키 히나</span><p class = "member_introduce">
+            <br>어렸을 적 히나의 꿈은 아이돌이었다.<br>
+            유약한 성격 탓에 일찍이 꿈을 포기했지만, 친구의 제보로 본인의 노래 영상이 세상에 알려지게 되어<br>
+            한 아이돌 프로덕션에 합류하게 된다.<br>
+            데뷔 전 트위터의 피아노 영상이나, 첫 커버곡 "낙향"의 임팩트로 인해 데뷔 전부터 청초라는 이미지가 생겼다.<br>
+            실제로 방송 초창기에는 차분하고 조곤조곤한 텐션으로 방송했는데, 당시에는 낯을 가렸을 뿐이라고.<br> 
+            점차 방송에 적응하고 시청자들을 편하게 느끼게 된 이후로는 높은 텐션의 방송을 이어가고 있다.<br> 
+            <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.5s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/스텔라이브_사진/네네코마시로.png" alt="이미지4" style="width : 330px"; height="auto";>
+        <span class="highlight">네네코 마시로</span><p class = "member_introduce">
+          <br>임무를 받고 지구로 내려와 자신의 행성인 고양이 동료들을 찾고 있다.<br>
+          하지만 유일한 수단인 탐지기를 잃어버려 헤메던 중 스텔라이브를 발견하게 된다.<br>
+          장난기와 애교가 많은 성격. 기본적으로는 속삭이는 듯 하면서도 색기있는 톤의 목소리를 가졌으나 방송 내내 장난을 치거나, <br>
+          애교를 부리거나, 화를 내거나, 비명을 지르기 때문에 시청자들은 짜랑짜랑하게 울리는 목소리를 듣는 경우가 훨씬 많다. <br>
+          목소리 음역대가 상당히 넓으나 기본 톤이 높아 고양이 같이 귀여운 목소리로 말하는 경우가 대부분이다.<br><br>
+          <hr></p>
+      </div>
+      <div class = "fade-in-up animation-delay: 0.6s;">
+        <img class="img-fluid_mx-2_my-2_rounded" src="./images/스텔라이브_사진/유즈하리코.png" alt="이미지5" style="width : 330px"; height="auto";>
+        <span class="highlight">유즈하 리코</span><p class = "member_introduce">
+          <br>이세계의 마왕을 물리치고 세상을 구한 용사. 마왕을 물리친 대가로 소원을 빌어 이곳으로 오게 된다.<br>
+          자신을 기억해주는 사람이 없으니 힘이 사라지는 것을 깨달은 리코는<br>
+          다시한번 사람들을 구하는 용사가 되기 위해 스텔라이브에 들어가게 된다.<br>
+          방송 내내 떨어지지 않는 높은 텐션을 가지고 있으며, 기본적으로 밝고 활기찬 성격이다.<br> 
+          이런 성격과 높은 텐션에서 나오는 에너지 넘치는 방송이 주 특징이다. 텐션이 높고 에너지가 넘치는 만큼 웃음도 많다. <br>
+          클리셰 멤버들이 뽑은 웃음이 많은 멤버로도 뽑힐 정도로 자주 웃으며, 방송에서도 이 부분이 자주 드러난다.<br>
+          <hr></p>
+      </div>
+      </div>
+    </section>
+    
+    
+    <section class="my-4 fade-in-up animation-delay: 0.7s;">  
+      <div class="d-flex mt-5 mb-4">
+        <div class="box"></div>
+        <h5><em style="font-size: 2rem;">INFO</em></h5>
+      </div>
+      <div class = "container">
+        <p class="mb-2" style="font-size: 2rem;">관련 영상</p>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/suyhkCwKX48" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Jt6UCd7JhAA" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- 푸터 -->
+  <footer class="text-white text-center sticky-bottom fw-light opacity-75" style="background-color: #FFBAB9;">
+    Confernece of Korea Artificial-Intelligence Convergence Technology Society, by 박관호, 김용빈
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이세돌 소개</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- 파비콘 -->
+  <link rel="icon" href="./fav/favicon-16x16.png">
+
+  <script>
+    function onScroll() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      const windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+          const position = el.getBoundingClientRect().top;
+          const delay = el.getAttribute('data-delay') || 0;
+          if (position < windowHeight - 100) {
+              setTimeout(() => {
+                  el.classList.add('visible');
+              }, delay);
+          }
+      });
+  }
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('load', onScroll);
+  </script>
+
+</head>
+<style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+  @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR&display=swap');
+  * {
+    font-family: 'Do Hyeon', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, white, #f8c4dd, rgb(178, 243, 229));
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    .highlight {
+      color: #ff007f; /* 강조 색상 */
+      font-weight: bold; /* 굵은 글씨 */
+      background-color: #ffdab9; /* 배경 색상 */
+      padding: 6px 8px; /* 여백 추가 */
+      border-radius: 10px; /* 둥근 모서리 */
+      font-size: 36px;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 */
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-out;
+    }
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+          transform: translateY(20px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+    }
+
+    .animated {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    hr {
+      border: none;
+      height: 5px;
+      background: linear-gradient(to right, #ff5722, #fce4ec, #ff5722);
+      margin: 40px 0;
+      position: relative;
+    }
+
+    hr:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        background: #ff5722;
+        border-radius: 50%;
+        animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes gradientBG {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+  div input[type='checkbox']:checked {
+    background-color: #FFBAB9;
+    border-color: #FFBAB9;
+  }
+  .box {
+    background-color:#FFBAB9;
+    min-width: 20px;
+    height: 20px;
+    content: ' ';
+    margin-right: 1rem;
+  }
+
+  .img-fluid_rounded {
+    width: 100%;
+    height: auto;
+    border: 10px solid rgb(111, 72, 72); /* 액자 색상과 두께 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 20px; /* 액자의 둥근 모서리 */
+  }
+  
+
+  .img-fluid_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .img-fluid_mx-2_my-2_rounded {
+    border: 4px solid #63605d; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    margin: 10px;
+    float: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .img-fluid_mx-2_my-2_rounded:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .member_introduce {
+    font-size: 25px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+
+  .video-container {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #75afe2; /* 테두리 색상과 두께 */
+    border-radius: 20px; /* 테두리의 둥근 모서리 */
+    overflow: hidden; /* 내용이 넘치는 경우를 대비하여 가리기 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+  }
+  
+  .video-container iframe {
+    border-radius: 20px; /* 비디오 프레임의 둥근 모서리 */
+  }
+
+</style>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark opacity-75 sticky-top" style="background-color: #FFBAB9;">
+    <div class="container-fluid">
+      <!-- 로고 -->
+      <a class="navbar-brand" href="./index.html"><img class='logo' src="./images/logo.png" width="50s"></a>
+      <!-- 토글 버튼 -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-bold" aria-current="page" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="./03_community.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <!-- 로그인 -->
+          <a class="nav-link fw-bold" href="#exampleModal" data-bs-toggle="modal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- 로그인 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: gray;"><i class="bi bi-lock-fill" style="color: #ffbab9;"></i> Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" style="color: gray;"><i class="bi bi-envelope" style="color: #ffbab9;"></i> Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">우리는 귀하의 이메일을 다른 누구와도 공유하지 않습니다.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: gray;"><i class="bi bi-key" style="color: #ffbab9;"></i> Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #ffdd7c; border-style: none;">Close</button>
+        <button type="button" class="btn btn-primary" style="background-color: #ffbab9; border-style: none;">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container mt-5 fade-in-up animation-delay: 0.1s;">
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex mb-4">
+      <div class="col text-center" style="width: 30%;">
+        <img class="img-fluid_rounded" src="./images/이세돌_사진/이세돌1.png" alt="이세돌"></a>
+      </div>
+      <div class="col" style="width: 70%;">
+        <div class="text-center my-4" style="background-color: #faecec; border-style: none; border-radius: 1rem;">
+          <div style="color: #63605d;">
+            <h4 class="pt-4" style="font-weight: 600;">이세돌(이세계 아이돌)</h4>
+            <p style="font-size: large;">왁 엔터테인먼트 소속의 6인조 버츄얼 걸그룹. 
+            인터넷 방송인 우왁굳이 기획한 오디션을 통해서 2021년 8월 26일에 결성되었으며, <br>
+            동년 12월 17일 디지털 싱글 1집 RE : WIND를 발매하며 데뷔하였다.<br>
+            "이세계 아이돌"은 본래 프로젝트명이었으나 임시로 그룹명처럼도 사용되다 그대로 굳어진 이름이다. <br>
+            다른 세계의 아이돌이라는 의미가 담겨있다.<br>
+            이세계아이돌은 버츄얼 스트리머인 동시에 버츄얼 걸그룹이다. 즉, 아이돌 겸 스트리머 개념이다. <br>
+            멤버들은 아프리카TV에서 개인 라이브 방송을 진행하고 유튜브에 편집된 영상을 올리는 인터넷 방송인으로서의 활동을 하는 반면,<br> 
+            실제로 음반을 발매하고 팬미팅과 쇼케이스를 진행하며 커버 곡을 내는 등 아이돌로서의 활동도 활발히 진행하고 있다.<br><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <hr>
+
+    <section class="my-4">
+      <!-- 멤버들 -->
+      <div class="d-flex mt-5">
+        <div class="box"></div>
+        <h5 style="font-size: 2rem;"><em>대표 멤버 소개</em></h5>
+        </div>
+        <div class = "fade-in-up animation-delay: 0.2s;">
+            <img class="img-fluid_mx-2_my-2_rounded" src="./images/이세돌_사진/아이네.png" alt="이미지1" style="width : 330px;" height="auto;">
+            <span class="highlight">아이네</span><p class = "member_introduce">
+                <br>오디션 때부터 팬들은 물론이고, 합격 후 이세돌 멤버들도 입을 모아 릴파와 함께 메인보컬로 꼽을 정도로<br>
+                노래 실력이 뛰어나다. 그룹 내에서 공식 포지션은 정해지지 않았지만 보통 노래 후렴구와 같은 하이라이트 파트와 화음, <br>
+                코러스를 담당하는 등 비공식적으로도 그 역할을 하는 편. 허스키한 톤에 풍부한 성량과 넓은 음역대를 지니고 있으며, <br>
+                특히 감정을 연기하는 데 있어 특출난 기교를 갖춘 훌륭한 보컬의 소유자이다. 소화할 수 있는 장르의 영역도 그만큼 넓다.<br>
+                음악을 사랑하는 부모님의 희망으로 어렸을 때부터 다양한 콩쿠르에 참여하면서 성악가를 장래 희망으로 삼았으며, <br>
+                자신의 실력에 한계를 느껴 고등학생 때 꿈을 접었지만 노래를 제대로 해보고 싶다는 희망이 생겨 음악을 공부했다고 한다. <hr></p>
+        </div>
+        <div class = "fade-in-up animation-delay: 0.3s;">
+            <img class="img-fluid_mx-2_my-2_rounded" src="./images/이세돌_사진/징버거.png" alt="이미지2" style="width : 330px"; height="auto";>
+            <span class="highlight">징버거</span><p class = "member_introduce">
+                <br>어릴 때 부산 지역 대학교에서 디자인을 전공하였고, 대학 졸업 후 게임 원화가 학원도 1년 정도 다녔다.<br>
+                단기간이지만 일러스트레이터 강사로서 일해본 프로 경력도 조금 있다. 다만 회사에 소속된 적은 없다.<br>
+                이세돌 선발 이전에는 해당 경력을 살려 개인 그림방송을 하고 있었으며 이 시기부터 징버거를 닉네임으로 사용했다.<br>
+                병맛 더빙도 했으며, 다룰 수 있는 목소리 톤이 다양하고 음역대가 풍부해 스펙트럼이 넓은 보컬로, <br>
+                실력도 준수하여 그룹 활동 곡이나 커버 등에서 새로운 목소리를 선보일 때마다 놀라는 팬들이 많다.<br>
+                여러 장르의 곡을 커버해 각기 다른 목소리를 보여줬다. 또한, 독특한 노래도 부르는 등 상당히 다양한 음악을 시도한다. <br>
+            
+
+            <hr></p>
+        </div>
+        <div class = "fade-in-up animation-delay: 0.4s;">
+            <img class="img-fluid_mx-2_my-2_rounded" src="./images/이세돌_사진/릴파.png" alt="이미지3" style="width : 330px"; height="auto";>
+            <span class="highlight">릴파</span><p class = "member_introduce">
+                <br>이세계아이돌 활동 초기부터 멤버들이나 팬들 사이에서 아이네와 함께 메인보컬로 거론될 만큼 실력이 좋다. <br>
+                물론 각 멤버마다 공식적으로 정해진 포지션은 없지만 대체로 후렴, <br>
+                클라이맥스 고음 파트와 같은 하이라이트나 애드립과 코러스를 맡는 등 그 나름의 역할을 하는 편. <br>
+                기본기가 좋으며 단단한 성대와 발성, 매우 넓은 음역대, 큰 성량을 소화하는 고유의 창법 등 <br>
+                특색있는 매력을 가지고 있어 다양한 장르에서 본인만의 색을 드러내는 것이 가능한 보컬이다. <br>
+                실제 아이돌 그룹 메인보컬로 활동한 경력이 있고 재즈 보컬을 전공으로 배우기도 하였다. <br>
+                <hr></p>
+        </div>
+        <div class = "fade-in-up animation-delay: 0.5s;">
+            <img class="img-fluid_mx-2_my-2_rounded" src="./images/이세돌_사진/주르르.png" alt="이미지4" style="width : 330px"; height="auto";>
+            <span class="highlight">주르르</span><p class = "member_introduce">
+                <br>"밍나~ 콘르르 콘르르!" <방송 시작 인사말><br>
+                우왁굳이 방송에서 밝히길 예전에 유명 유튜버의 편집자 일을 맡았었다고 한다. 지금도 그분들과 연락을 하는 듯하다.<br>
+                일하는 사람들끼리 아크와 같은 생존게임을 같이 했다고 한다. 그러면서 자신도 게임 유튜버를 하고 싶다고 말했고, <br>
+                동료들이 잘 할 것 같다고 북돋아 주었다고 한다.<br>
+                높은 톤과 밝은 음색의 목소리를 지닌 보컬로,<br>
+                K-POP 아이돌 노래와 같은 장르에 자연스럽게 녹아드면서도 자신만의 특색을 보일 수 있는 가창이 가능하다.<br>
+            <hr></p>
+        </div>
+        <div class = "fade-in-up animation-delay: 0.6s;">
+            <img class="img-fluid_mx-2_my-2_rounded" src="./images/이세돌_사진/고세구.png" alt="이미지5" style="width : 330px"; height="auto";>
+            <span class="highlight">고세구</span><p class = "member_introduce">
+                <br>"하이 빵까루~~~!!" <방송 시작 인사말><br>
+                데뷔전에는 학업과 각종 아르바이트를 병행한 공무원 시험 준비생이었다.<br> 
+                멤버들 중에서 유일하게 방송 경험이 없었으나 끼가 많은 편이라 오디션이 열리자 친구가 적극적으로 격려해줬다고 한다.<br>
+                맑고 청아한 음색이 특징인 보컬 스타일을 가지고 있으며, 밝고 활기찬 곡부터 중저음이 돋보이는 잔잔한 곡에 이르기까지 <br>
+                다양한 노래를 선보이고 있다. 특유의 음색이 맑고 깨끗해서 듣기 편안하다고 좋아하는 팬들이 많다. 
+                빠른 노래를 부를 때도 가사가 정확히 들릴 정도로 발음이 정확하다. 이세계아이돌의 랩 담당 멤버로 불리기도 한다. <br>
+            <hr></p>
+        </div>
+        <div class = "fade-in-up animation-delay: 0.7s;">
+            <img class="img-fluid_mx-2_my-2_rounded" src="./images/이세돌_사진/비챤.png" alt="이미지6" style="width : 330px"; height="auto";>
+            <span class="highlight">비챤</span><p class = "member_introduce">
+                <br>"하이 빵까루~~~!!" <방송 시작 인사말><br>
+                데뷔전 고등학생 시절에는 우타이테로 활동했으며 당시에는 백발과 노랑-파랑 오드아이를 지닌 캐릭터를 사용했다. <br>
+                당시 활동했던 커버곡들은 지금도 비챤의 유튜브 채널에 남아있다.<br>
+                음색이 굉장히 독특하고 매력적이며 창법의 개성이 강한 보컬이다. 본격적인 노래 공부를 일본 노래로 한 티가 조금 나는데, <br>
+                고음부에서 허스키하면서도 얇고 예쁜 톤을 유지하면서도 힘이 잘 붙는 편이다. <br>
+                첫 음을 잡고 들어갈 때나 끝을 마무리할 때 특유의 스타일이 있으며 거슬린다는 느낌 없이 꽤 부드럽게 이어진다. <br>
+            <hr></p>
+        </div>
+    </div>
+    </section>
+    
+    
+    <section class="my-4 fade-in-up animation-delay: 0.8s;">  
+      <div class="d-flex mt-5 mb-4">
+        <div class="box"></div>
+        <h5><em style="font-size: 2rem;">INFO</em></h5>
+      </div>
+      <div class = "container">
+        <p class="mb-2" style="font-size: 2rem;">관련 영상</p>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/fgSXAKsq-Vo" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/rDFUl2mHIW4" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+          encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- 푸터 -->
+  <footer class="text-white text-center sticky-bottom fw-light opacity-75" style="background-color: #FFBAB9;">
+    Confernece of Korea Artificial-Intelligence Convergence Technology Society, by 박관호, 김용빈
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
